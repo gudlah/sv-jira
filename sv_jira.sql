@@ -117,6 +117,7 @@ CREATE TABLE `jira_cards` (
   `reporter_id` varchar(100) DEFAULT NULL,
   `card_created` datetime DEFAULT NULL,
   `card_updated` datetime DEFAULT NULL,
+  `card_started` datetime DEFAULT NULL,
   `card_resolved` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -281,6 +282,7 @@ CREATE TABLE `jira_sub_tasks` (
   `assignee_id` varchar(100) DEFAULT NULL,
   `sub_task_created` datetime DEFAULT NULL,
   `sub_task_updated` datetime DEFAULT NULL,
+  `sub_task_started` datetime DEFAULT NULL,
   `sub_task_resolved` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

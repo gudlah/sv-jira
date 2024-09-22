@@ -15,12 +15,12 @@ class ChartModel extends CI_Model {
             FROM jira_columns
             JOIN jira_sprints ON jira_sprints.sprint_id = jira_columns.sprint_id
             UNION ALL
-            SELECT CONCAT('card', jira_cards.card_key) AS id, jira_cards.card_title AS TEXT, jira_cards.card_created AS start_date, DATEDIFF(jira_sprints.sprint_end_date, jira_cards.card_created) AS duration, CONCAT('column', jira_cards.column_id) AS parent, jira_columns.persen AS progress, true AS open
+            SELECT CONCAT('card', jira_cards.card_key) AS id, jira_cards.card_title AS TEXT, jira_cards.card_started AS start_date, DATEDIFF(jira_sprints.sprint_end_date, jira_cards.card_started) AS duration, CONCAT('column', jira_cards.column_id) AS parent, jira_columns.persen AS progress, true AS open
             FROM jira_cards
             JOIN jira_columns ON jira_columns.column_id = jira_cards.column_id
             JOIN jira_sprints ON jira_sprints.sprint_id = jira_columns.sprint_id
             UNION ALL
-            SELECT CONCAT('subtask', jira_sub_tasks.sub_task_id) AS id, jira_sub_tasks.sub_task_title AS TEXT, jira_sub_tasks.sub_task_created AS start_date, DATEDIFF(jira_sprints.sprint_end_date, jira_sub_tasks.sub_task_created) AS duration, CONCAT('card', jira_sub_tasks.card_key) AS parent, tabelStatus.persen AS progress, FALSE AS OPEN
+            SELECT CONCAT('subtask', jira_sub_tasks.sub_task_id) AS id, jira_sub_tasks.sub_task_title AS TEXT, jira_sub_tasks.sub_task_started AS start_date, DATEDIFF(jira_sprints.sprint_end_date, jira_sub_tasks.sub_task_started) AS duration, CONCAT('card', jira_sub_tasks.card_key) AS parent, tabelStatus.persen AS progress, FALSE AS OPEN
             FROM jira_sub_tasks
             JOIN (SELECT column_id, column_name, persen FROM jira_columns) AS tabelStatus ON tabelStatus.column_id = jira_sub_tasks.status_id
             JOIN jira_cards ON jira_cards.card_key = jira_sub_tasks.card_key
