@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="http://localhost/sv-jira/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://localhost/sv-jira/assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="https://cdn.dhtmlx.com/gantt/edge/dhtmlxgantt.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
     <title>Sharing Vision - <?= $judul; ?></title>
 </head>
 <body>

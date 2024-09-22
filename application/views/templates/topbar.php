@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-link active" href="<?= base_url(); ?>">Data</a>
-                <a class="nav-link" href="<?= base_url('chart'); ?>">Chart</a>
+                <a class="nav-link <?= ($id == 1)? 'active' : '' ?>" href="<?= base_url(); ?>">Data</a>
+                <a class="nav-link <?= ($id == 2)? 'active' : '' ?>" href="<?= base_url('chart'); ?>">Chart</a>
             </div>
         </div>
     </nav>

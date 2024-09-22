@@ -7,7 +7,8 @@ class Data extends CI_Controller {
 	}
 	public function index() {
 		$this->load->view('data', [
-			'judul'	=> 'Data',
+			'id'    => 1,
+			'judul'	=> 'Data'
 		]);
 	}
 
