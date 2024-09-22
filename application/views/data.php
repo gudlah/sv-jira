@@ -298,6 +298,7 @@
                     <th>Card Reporter</th>
                     <th>Card Created</th>
                     <th>Card Updated</th>
+                    <th>Card Started</th>
                     <th>Card Resolved</th>
                 </tr>
             </thead>
@@ -316,6 +317,7 @@
                     <td>${card.reporter_name}</td>
                     <td>${card.card_created}</td>
                     <td>${card.card_updated}</td>
+                    <td>${card.card_started}</td>
                     <td>${card.card_resolved}</td>
                 </tr>`).join('')}
             </tbody>
@@ -342,6 +344,7 @@
                     <th>Sub Task Reporter</th>
                     <th>Sub Task Created</th>
                     <th>Sub Task Updated</th>
+                    <th>Sub Task Started</th>
                     <th>Sub Task Resolved</th>
                 </tr>
             </thead>
@@ -362,6 +365,7 @@
                     <td>${subTask.reporter_name}</td>
                     <td>${subTask.sub_task_created}</td>
                     <td>${subTask.sub_task_updated}</td>
+                    <td>${subTask.sub_task_started}</td>
                     <td>${subTask.sub_task_resolved}</td>
                 </tr>`).join('')}
             </tbody>

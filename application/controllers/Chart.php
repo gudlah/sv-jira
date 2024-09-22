@@ -19,8 +19,35 @@ class Chart extends CI_Controller {
             $datas[$i]['progress'] = (float)$datas[$i]['progress'];
             $datas[$i]['open'] = (bool)$datas[$i]['open'];
         }
+        $this->_buildDataLink($datas);
         res(200, [
-            'data' => $datas
+            'data'  => $datas,
+            'links' => $this->_buildDataLink()
         ]);
+    }
+
+    private function _buildDataLink() {
+        $links = [];
+        $cards = $this->cm->getAllCard();
+        foreach($cards as $card) {
+            $subTasks = $this->cm->getAllSubTask($card['card_key']);
+            $jumlahSubTasks = count($subTasks);
+            if($jumlahSubTasks > 1) {
+                $i = 0;
+                foreach($subTasks as $st) {
+                    if($i < $jumlahSubTasks-1) {
+                        array_push($links, [
+                            'id'        => $st['sub_task_id'].($i+1),
+                            'source'    => $st['sub_task_id'],
+                            'target'    => $subTasks[$i+1]['sub_task_id'],
+                            'type'      => '0',
+                            'sub_task_title'    => $st['sub_task_title']
+                        ]);
+                    }
+                    $i++;
+                }
+            }
+        }
+        return $links;
     }
 }

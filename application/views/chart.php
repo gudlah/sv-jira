@@ -10,7 +10,10 @@
     const renderUtama = () => {
         gantt.init('gantt');
         req({link: 'all'})
-            .then(all => gantt.parse(all));
+            .then(all => {
+                console.log(all)
+                gantt.parse(all)
+            });
     }
 </script>
 <?php $this->load->view('templates/closure'); ?>
